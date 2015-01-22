@@ -33,7 +33,7 @@ Find "Coinzone" & click [Install]
 
   * Have questions? Please visit our [Customer Support Site](http://support.coinzone.com/).
 
-##  CS-Cart Support
+##  Shopware Support
 
   * [Homepage](http://www.shopware.com/)
   * [Documentation](http://www.shopware.com/software/overview/documentation)
