@@ -28,7 +28,6 @@ class Shopware_Plugins_Frontend_Coinzone_Bootstrap extends Shopware_Components_P
 
     public function enable()
     {
-        $speedArray = array('LOW', 'MEDIUM', 'HIGH');
         try {
             $config = $this->Config();
 
@@ -40,10 +39,7 @@ class Shopware_Plugins_Frontend_Coinzone_Bootstrap extends Shopware_Components_P
             if (!isset($apiKey) || empty($apiKey)) {
                 throw new Exception('Invalid API Key');
             }
-            $speed = $config->get('speed');
-            if (!isset($speed) || empty($speed) || !in_array($speed, $speedArray)) {
-                throw new Exception('Invalid Speed Value');
-            }
+
             $payment = $this->Payment();
             $payment->setActive(true);
             return true;
