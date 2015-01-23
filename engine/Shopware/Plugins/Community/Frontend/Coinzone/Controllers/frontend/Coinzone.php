@@ -73,19 +73,6 @@ class Shopware_Controllers_Frontend_Coinzone extends Shopware_Controllers_Fronte
             return false;
         }
 
-        /* add products ordered to API request */
-        $items = $this->getBasket();
-        $displayItems = array();
-        foreach ($items['content'] as $item) {
-            $displayItems[] = array(
-                'name' => $item['articlename'],
-                'quantity' => (int)$item['quantity'],
-                'unitPrice' => (int)$item['price'],
-                'shortDescription' => $item['additional_details']['description'],
-                'imageUrl' => !empty($item['image']['src']['original']) ? $item['image']['src']['original'] : ''
-            );
-        }
-
         /* create payload array */
         $payload = array(
             'amount' => $this->getAmount(),
@@ -93,14 +80,10 @@ class Shopware_Controllers_Frontend_Coinzone extends Shopware_Controllers_Fronte
             'merchantReference' => $paymentId,
             'email' => $user['additional']['user']['email'],
             'notificationUrl' => $notifyUrl,
-            'displayOrderInformation' => array(
-                'items' => $displayItems,
-                'shippingCost' => $this->getBasket()['sShippingcosts']
-            ),
         );
+
         $coinzone = new Shopware_Plugins_Frontend_Coinzone_Components_CoinzoneApi($clientCode, $apiKey);
         $response = $coinzone->callApi('transaction', $payload);
-
         if ($response->status->code !== 201) {
             return false;
         }
