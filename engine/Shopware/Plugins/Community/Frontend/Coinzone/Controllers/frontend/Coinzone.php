@@ -23,13 +23,8 @@ class Shopware_Controllers_Frontend_Coinzone extends Shopware_Controllers_Fronte
         $requestUrl = $this->Request()->getScheme() . '://' . $this->Request()->getHttpHost() . $this->Request()->getRequestUri();
         $timestamp = $this->Request()->getHeader('timestamp');
 
-        /* request type : json | http_post */
         $content = file_get_contents('php://input');
-        $input = json_decode($content, 1);
-        if (empty($content) || json_last_error() !== JSON_ERROR_NONE) {
-            $input = $this->Request()->getPost();
-            $content = http_build_query($input);
-        }
+        $input = json_decode($content);
 
         /** check signature */
         $coinzoneConfig = Shopware()->Plugins()->Frontend()->Coinzone()->Config();

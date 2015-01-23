@@ -94,7 +94,7 @@ class Shopware_Plugins_Frontend_Coinzone_Bootstrap extends Shopware_Components_P
             $this->createPayment(
                 array(
                     'name' => 'coinzone',
-                    'description' => 'Coinzone',
+                    'description' => 'Bitcoin - Powered by Coinzone',
                     'action' => 'coinzone',
                     'active' => 0,
                     'additionalDescription' => ''
