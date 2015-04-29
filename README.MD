@@ -25,7 +25,10 @@ Find "Coinzone" & click [Install]
 
 3. Fill in your Client Code and API Key. They can be found on the API tab of the Settings page in the [Coinzone Control Panel](https://merchant.coinzone.com/settings#apiTab).
 
-4. Don't have a Coinzone account? [Sign up for free](https://merchant.coinzone.com/signup?source=shopware)
+4. (Only for Shopware version 5+) After filling in the Client Code and API key, save the configuration, then click [Activate] to activate the plugin.
+Navigate to Configuration -&gt; Payment Methods, find "Coinzone" and set the payment method as active.
+
+5. Don't have a Coinzone account? [Sign up for free](https://merchant.coinzone.com/signup?source=shopware)
 
 #  Support
 
